@@ -40,14 +40,13 @@ public class GameScene extends JPanel {
         this.ROAD_3.paint(g);
         this.FRAME_LEFT.paint(g);
         this.FRAME_RIGHT.paint(g);
-//        this.player.paint(g);
         this.imageCar.paint(g);
     }
 
 
     public void mainGameLoop(){
         new Thread(()->{
-//            PlayerMovement playerMovement = new PlayerMovement(this.player);
+
             PlayerMovement_2 playerMovement3 = new PlayerMovement_2(this.imageCar);
 
             this.setFocusable(true);
