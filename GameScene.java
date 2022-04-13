@@ -20,8 +20,7 @@ public class GameScene extends JPanel {
         this.setBounds(x, y, width, height);
         this.setLayout(null);
         this.setBackground(Color.black);
-//        this.setOpaque(true);
-
+ 
 //        this.player = new Car();
 
         this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\car.jpg");
@@ -32,9 +31,7 @@ public class GameScene extends JPanel {
         ROAD_3 = new Rectangles((width/4)*3, 0, 6, height, Color.white);
         FRAME_RIGHT = new Rectangles(width-18, 0, 4, height, Color.green);
         FRAME_LEFT = new Rectangles(0, 0, 4, height, Color.green);
-//        JLabel jLabel = new JLabel();
-//        jLabel.setIcon(new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\img_1.png"));
-//        this.add(jLabel);
+
         mainGameLoop();
      }
 
