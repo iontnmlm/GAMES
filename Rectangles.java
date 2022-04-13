@@ -1,4 +1,4 @@
- package Game;
+package Game;
 
 import java.awt.*;
 
@@ -24,33 +24,16 @@ public class Rectangles {
     }
 
     public void moveRight(){
-        this.x += 6;
+        this.x++;
     }
     public void moveLeft(){
-        this.x -= 6;
+        this.x--;
     }
-
     public void moveUp(){
-        this.y -= 2;
+        this.y--;
     }
     public void moveDown(){
-        this.y += 1;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-    public int getX(){
-        return this.x;
-    }
-    public int getY() {
-        return this.y;
-    }
-    public int getWidth(){
-        return this.width;
-    }
-    public int getHeight(){
-        return this.height;
+        this.y++;
     }
 
 }
