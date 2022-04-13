@@ -14,14 +14,11 @@ public class GameScene extends JPanel {
     private My_Image imageCar;
     private ImageIcon image;
 
-//    private Car player;
-
     public GameScene(int x, int y, int width, int height) {
         this.setBounds(x, y, width, height);
         this.setLayout(null);
         this.setBackground(Color.black);
- 
-//        this.player = new Car();
+
 
         this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\car.jpg");
         this.imageCar = new My_Image(image, 300, height-200);
