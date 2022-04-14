@@ -43,9 +43,7 @@ public class GameScene extends JPanel {
                     random.nextInt(height-(-10000)) -10000
             );
         }
-//random.nextInt(max - min) + min
-// max = 30; min = -10;
-//Will yield a random int between -10 and 30 (exclusive).
+
         mainGameLoop();
      }
 
