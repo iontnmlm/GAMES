@@ -20,16 +20,16 @@ public class My_Image extends Component {
     }
 
     public void moveRight(){
-        this.x++;
+        this.x += 3;
     }
     public void moveLeft(){
-        this.x--;
+        this.x -= 3;
     }
     public void moveUp(){
-        this.y--;
+        this.y -= 3;
     }
     public void moveDown(){
-        this.y++;
+        this.y += 3;
     }
 
     @Override
