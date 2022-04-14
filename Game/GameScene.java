@@ -15,18 +15,14 @@ public class GameScene extends JPanel {
     private Rectangles FRAME_LEFT;
 
     private Rectangles BOARD;
-//    private Rectangles[] obstacles;
     private My_Image[] obstacles;
     private ImageIcon cars;
     private My_Image imageCar;
     private ImageIcon image;
-//    private Car player;
-
+ 
     public GameScene(int x, int y, int width, int height) {
         this.setBounds(x, y, width, height);
         this.setLayout(null);
-//        this.setBackground(Color.black);
-//        this.player = new Car();
         this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\car.jpg");
         this.imageCar = new My_Image(image, 300, height-200);
 
@@ -47,28 +43,9 @@ public class GameScene extends JPanel {
                     random.nextInt(height-(-10000)) -10000
             );
         }
-//        this.obstacles = new Rectangles[700];
-//        Random random = new Random();
-//        for(int i = 0; i < this.obstacles.length; i++){
-//            Rectangles obstacle = null;
-//            do{
-//                obstacle = new Rectangles(
-//                        random.nextInt(width),
-//                        random.nextInt(height),
-//                        20,
-//                        20,
-//                        Color.BLUE);
-//            }while (obstacle.checkCollision(this.player.getBody()) || obstacle.checkCollision(this.player.getFront()));
-//            this.obstacles[i] = new Rectangles(
-//                        random.nextInt(width),
-//                    random.nextInt(height-(-10000)) -10000,
 //random.nextInt(max - min) + min
 // max = 30; min = -10;
 //Will yield a random int between -10 and 30 (exclusive).
-//                        20,
-//                        20,
-//                        Color.BLUE);
-//        }
         mainGameLoop();
      }
 
@@ -80,11 +57,7 @@ public class GameScene extends JPanel {
         this.ROAD_3.paint(g);
         this.FRAME_LEFT.paint(g);
         this.FRAME_RIGHT.paint(g);
-//        this.player.paint(g);
         this.imageCar.paint(g);
-//        for(int i = 0; i < this.obstacles.length; i++){
-//            obstacles[i].paint(g);
-//        }
         for(int i = 0; i < this.obstacles.length; i++){
             obstacles[i].paint(g);
         }
@@ -92,8 +65,6 @@ public class GameScene extends JPanel {
 
     public void mainGameLoop(){
         new Thread(()->{
-//            PlayerMovement playerMovement = new PlayerMovement(this.player);
-//            PlayerMovement_2 playerMovement3 = new PlayerMovement_2(this.imageCar);
             PlayerMovement_IMAGE_CAR board = new PlayerMovement_IMAGE_CAR(this.BOARD, this.imageCar, this.obstacles);
             this.setFocusable(true);
             this.requestFocus();
