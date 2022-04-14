@@ -33,20 +33,20 @@ public class PlayerMovement_IMAGE_CAR implements KeyListener {
                 this.imageCar.moveRight();
                 this.Board.moveDown();
                 for(int i = 0; i < this.obstacles.length; i++){
-                    obstacles[i].moveDown();
+                    obstacles[i].moveCarsDown();
                 }
                 break;
             case KeyEvent.VK_LEFT:
                 this.imageCar.moveLeft();
                 this.Board.moveDown();
                 for(int i = 0; i < this.obstacles.length; i++){
-                    obstacles[i].moveDown();
+                    obstacles[i].moveCarsDown();
                 }
                 break;
             case KeyEvent.VK_UP:
                 this.Board.moveDown();
                 for(int i = 0; i < this.obstacles.length; i++){
-                    obstacles[i].moveDown();
+                    obstacles[i].moveCarsDown();
                 }
                 break;
             case KeyEvent.VK_DOWN:
