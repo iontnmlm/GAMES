@@ -11,7 +11,7 @@ public class Window  extends JFrame {
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEIGHT = 600;
  
-    // this function buit a window
+    // This function build a window.
     public Window() {
         this.setVisible(true);
         this.setSize(WINDOW_WIDTH , WINDOW_HEIGHT);
@@ -21,7 +21,7 @@ public class Window  extends JFrame {
         this.setLayout(null);
 
         
-        // this is a constractor of GameScene
+        // This is a constractor of GameScene that build a Pannel.
         GameScene gameScene = new GameScene(0, 0 , WINDOW_WIDTH, WINDOW_HEIGHT);
         this.add(gameScene);
 
