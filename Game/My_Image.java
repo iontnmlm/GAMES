@@ -20,10 +20,10 @@ public class My_Image extends Component {
     }
 
     public void moveRight(){
-        this.x += 3;
+        this.x += 2;
     }
     public void moveLeft(){
-        this.x -= 3;
+        this.x -= 2;
     }
     public void moveUp(){
         this.y -= 3;
@@ -32,7 +32,10 @@ public class My_Image extends Component {
         this.y += 3;
     }
 
-    @Override
+    public void moveCarsDown(){
+        this.y += 1;
+    }
+    
     public int getX() {
         return this.x;
     }
