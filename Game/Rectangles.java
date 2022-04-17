@@ -46,6 +46,7 @@ public class Rectangles {
         if(thisRectangle.intersects(otherRectangle)){
             collision = true;
         }
+
         return collision;
     }
 
