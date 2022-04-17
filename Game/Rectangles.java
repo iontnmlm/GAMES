@@ -39,15 +39,15 @@ public class Rectangles {
     }
 
 
-    public boolean checkCollision(Rectangles other){
-        boolean collision = false;
-        Rectangle thisRectangle = new Rectangle(this.x, this.y, this.width, this.height);
-        Rectangle otherRectangle = new Rectangle(other.x, other.y, other.width, other.height);
-        if(thisRectangle.intersects(otherRectangle)){
-            collision = true;
-        }
+//     public boolean checkCollision(Rectangles other){
+//         boolean collision = false;
+//         Rectangle thisRectangle = new Rectangle(this.x, this.y, this.width, this.height);
+//         Rectangle otherRectangle = new Rectangle(other.x, other.y, other.width, other.height);
+//         if(thisRectangle.intersects(otherRectangle)){
+//             collision = true;
+//         }
 
-        return collision;
-    }
+//         return collision;
+//     }
 
 }
