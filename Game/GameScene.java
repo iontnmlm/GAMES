@@ -57,9 +57,7 @@ public class GameScene extends JPanel {
                     this.frames[i] = new Frame(this.rectangles[i])
             );
         }
-//random.nextInt(max - min) + min
-// max = 30; min = -10;
-//Will yield a random int between -10 and 30 (exclusive).
+
         mainGameLoop();
        }
 
