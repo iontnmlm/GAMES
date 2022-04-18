@@ -1,6 +1,4 @@
-package Game;
-
-import com.company.CustomRectangle;
+ package Game;
 
 import java.awt.*;
 
@@ -26,28 +24,33 @@ public class Rectangles {
     }
 
     public void moveRight(){
-        this.x++;
+        this.x += 4;
     }
     public void moveLeft(){
-        this.x--;
+        this.x -= 4;
     }
+
     public void moveUp(){
-        this.y--;
+        this.y -= 2;
     }
     public void moveDown(){
-        this.y++;
+        this.y += 1;
     }
 
-
-//     public boolean checkCollision(Rectangles other){
-//         boolean collision = false;
-//         Rectangle thisRectangle = new Rectangle(this.x, this.y, this.width, this.height);
-//         Rectangle otherRectangle = new Rectangle(other.x, other.y, other.width, other.height);
-//         if(thisRectangle.intersects(otherRectangle)){
-//             collision = true;
-//         }
-
-//         return collision;
-//     }
+    public Color getColor() {
+        return color;
+    }
+    public int getX(){
+        return this.x;
+    }
+    public int getY() {
+        return this.y;
+    }
+    public int getWidth(){
+        return this.width;
+    }
+    public int getHeight(){
+        return this.height;
+    }
 
 }
