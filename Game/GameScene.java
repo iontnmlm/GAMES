@@ -44,9 +44,6 @@ public class GameScene extends JPanel {
         this.frames = new Frame[100];
         this.rectangles = new Rectangles[100];
         Random random = new Random();
-//random.nextInt(max - min) + min
-// max = 30; min = -10;
-//Will yield a random int between -10 and 30 (exclusive).
         int min = -200;
         int max = min + 100;
         for(int i = 0; i < this.obstacles.length; i++){
@@ -71,14 +68,29 @@ public class GameScene extends JPanel {
             }
             min -= 250;
             max = min + 100;
+            ImageIcon randomCars;
+            switch (x1){
+                case 0:
+                    randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars.jpg");
+                    break;
+                case 1, 2:
+                    randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars2.jpg");
+                    break;
+                default:
+                    randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCar.jpg");
+                    break;
+            }
             rectangles[i] = new Rectangles(X, Y, 93, 144, Color.WHITE);
             obstacles[i] = new My_Image(
-                    this.cars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars.jpg"),
+                    this.cars = new ImageIcon(String.valueOf(randomCars)),
                     X,
                     Y,
                     this.frames[i] = new Frame(this.rectangles[i])
             );
         }
+//random.nextInt(max - min) + min
+// max = 30; min = -10;
+//Will yield a random int between -10 and 30 (exclusive).
          this.mainGameLoop();
        }
 
@@ -111,6 +123,11 @@ public class GameScene extends JPanel {
                 try {
                     for(int i = 0; i < this.obstacles.length; i++){
                         if(this.frame.checkCollision(frames[i])){
+                            this.rectangle =  new Rectangles(this.frame.getX(), this.frame.getY(), 144,93 , Color.white);
+                            this.frame = new Frame(this.rectangle);
+                            this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCarBroked.jpg");
+                            this.imageCar = new My_Image(image, this.frame.getX() , this.frame.getY(), frame);
+                            repaint();
                             break first;
                         }
                     }
