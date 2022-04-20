@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 public class Window  extends JFrame {
 
-    public static final int WINDOW_WIDTH = 1000;
+    public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEIGHT = 600;
 
     //This constractur build a window.
@@ -21,7 +21,7 @@ public class Window  extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
     //This constractur build a Panel on the window.
-        GameScene gameScene = new GameScene(0, 0 , WINDOW_WIDTH-200, WINDOW_HEIGHT);
+        GameScene gameScene = new GameScene(0, 0 , WINDOW_WIDTH, WINDOW_HEIGHT);
         this.add(gameScene);
 
 
