@@ -26,7 +26,7 @@ public class PlayerMovement_IMAGE_CAR implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if(this.imageCar.getX() >= this.Board.getWidth()-80 && this.frame.getX() >= this.Board.getWidth()-80){
+        if(this.imageCar.getX() >= this.Board.getWidth()-110 && this.frame.getX() >= this.Board.getWidth()-110){
             this.imageCar.moveLeft();
             this.frame.moveLeft();
         }
