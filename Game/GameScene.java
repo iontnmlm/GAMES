@@ -1,4 +1,4 @@
- package Game;
+package Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,32 +24,54 @@ public class GameScene extends JPanel {
     private My_Image imageCar;
     private ImageIcon image;
 
-
     public GameScene(int x, int y, int width, int height) {
+
         this.setBounds(x, y, width, height);
         this.setLayout(null);
-
-        this.BOARD = new Rectangles(0, -10000, width, 10000+height, Color.black);
+        this.BOARD = new Rectangles(0, -20000, width, 20000+height, Color.black);
         ROAD_1 = new Rectangles((width / 4), 0, 6, height, Color.white);
         ROAD_2 = new Rectangles((width / 2), 0, 6, height, Color.white);
         ROAD_3 = new Rectangles((width/4)*3, 0, 6, height, Color.white);
-        FRAME_RIGHT = new Rectangles(width-4, 0, 4, height, Color.green);
-        FRAME_LEFT = new Rectangles(0, 0, 4, height, Color.green);
+        FRAME_RIGHT = new Rectangles(width-19, 0, 5, height, Color.green);
+        FRAME_LEFT = new Rectangles(0, 0, 5, height, Color.green);
 
-        this.rectangle = new Rectangles(300, height-200, 58, 130, Color.WHITE);
+        this.rectangle = new Rectangles(250, height-200, 93, 144, Color.WHITE);
         this.frame = new Frame(this.rectangle);
-        this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\myCar.jpg");
-        this.imageCar = new My_Image(image, 300, height-200, frame);
+        this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCar.jpg");
+        this.imageCar = new My_Image(image, 250, height-200, frame);
 
         this.obstacles = new My_Image[100];
         this.frames = new Frame[100];
         this.rectangles = new Rectangles[100];
         Random random = new Random();
-
-        for (int i = 0; i < this.obstacles.length; i++) {
-            int X = random.nextInt(width - 100);
-            int Y = random.nextInt(height - (-10000)) - 10000;
-            rectangles[i] = new Rectangles(X, Y, 58, 130, Color.WHITE);
+//random.nextInt(max - min) + min
+// max = 30; min = -10;
+//Will yield a random int between -10 and 30 (exclusive).
+        int min = -200;
+        int max = min + 100;
+        for(int i = 0; i < this.obstacles.length; i++){
+            int x1 = random.nextInt(4);
+            int X;
+            int Y = random.nextInt( max - min) + min;
+            switch (x1){
+                case 0:
+                    X = 50;
+                    break;
+                case 1:
+                    X = 200+50;
+                    break;
+                case 2:
+                    X = 200*2+50;
+                    break;
+                case 3:
+                    X = 200*3+50;
+                    break;
+                default:
+                    X = 0;
+            }
+            min -= 250;
+            max = min + 100;
+            rectangles[i] = new Rectangles(X, Y, 93, 144, Color.WHITE);
             obstacles[i] = new My_Image(
                     this.cars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars.jpg"),
                     X,
@@ -57,8 +79,7 @@ public class GameScene extends JPanel {
                     this.frames[i] = new Frame(this.rectangles[i])
             );
         }
-
-        mainGameLoop();
+         this.mainGameLoop();
        }
 
     protected void paintComponent(Graphics g) {
@@ -77,7 +98,7 @@ public class GameScene extends JPanel {
             obstacles[i].paint(g);
             this.frames[i].paint(g);
         }
-      }
+    }
 
     public void mainGameLoop(){
         new Thread(()->{
@@ -98,7 +119,7 @@ public class GameScene extends JPanel {
                         this.obstacles[i].moveCarsDown();
                         this.frames[i].moveDown();
                     }
-                    Thread.sleep(9);
+                    Thread.sleep(8);
                     repaint();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
