@@ -50,6 +50,9 @@ public class GameScene extends JPanel {
             int x1 = random.nextInt(4);
             int X;
             int Y = random.nextInt( max - min) + min;
+//random.nextInt(max - min) + min
+// max = 30; min = -10;
+//Will yield a random int between -10 and 30 (exclusive).
             switch (x1){
                 case 0:
                     X = 50;
@@ -69,11 +72,12 @@ public class GameScene extends JPanel {
             min -= 250;
             max = min + 100;
             ImageIcon randomCars;
-            switch (x1){
-                case 0:
+            int x2 = random.nextInt(9);
+            switch (x2){
+                case 0, 3, 6:
                     randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars.jpg");
                     break;
-                case 1, 2:
+                case 1, 2, 4, 7:
                     randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars2.jpg");
                     break;
                 default:
@@ -82,15 +86,12 @@ public class GameScene extends JPanel {
             }
             rectangles[i] = new Rectangles(X, Y, 93, 144, Color.WHITE);
             obstacles[i] = new My_Image(
-                    this.cars = new ImageIcon(String.valueOf(randomCars)),
+                    this.cars = randomCars,
                     X,
                     Y,
                     this.frames[i] = new Frame(this.rectangles[i])
             );
         }
-//random.nextInt(max - min) + min
-// max = 30; min = -10;
-//Will yield a random int between -10 and 30 (exclusive).
          this.mainGameLoop();
        }
 
@@ -136,7 +137,7 @@ public class GameScene extends JPanel {
                         this.obstacles[i].moveCarsDown();
                         this.frames[i].moveDown();
                     }
-                    Thread.sleep(8);
+                    Thread.sleep(5);
                     repaint();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
