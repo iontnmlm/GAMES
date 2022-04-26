@@ -91,6 +91,8 @@ public class GameScene extends JPanel {
             );
         }
          this.mainGameLoop();
+
+
        }
 
     protected void paintComponent(Graphics g) {
