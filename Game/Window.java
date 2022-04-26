@@ -1,6 +1,6 @@
 package Game;
 
-
+import com.company.PlayerMovement;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -12,7 +12,7 @@ public class Window  extends JFrame {
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEIGHT = 600;
 
-    //This constructor build a window.
+    //This constractur build a window.
     public Window() {
         this.setVisible(true);
         this.setSize(WINDOW_WIDTH , WINDOW_HEIGHT);
@@ -20,7 +20,7 @@ public class Window  extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setLayout(null);
-    //This constructor build a Panel on the window.
+    //This constractur build a Panel on the window.
         GameScene gameScene = new GameScene(0, 0 , WINDOW_WIDTH, WINDOW_HEIGHT);
         this.add(gameScene);
 
