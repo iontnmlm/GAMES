@@ -50,9 +50,7 @@ public class GameScene extends JPanel {
             int x1 = random.nextInt(4);
             int X;
             int Y = random.nextInt( max - min) + min;
-//random.nextInt(max - min) + min
-// max = 30; min = -10;
-//Will yield a random int between -10 and 30 (exclusive).
+
             switch (x1){
                 case 0:
                     X = 50;
@@ -93,6 +91,8 @@ public class GameScene extends JPanel {
             );
         }
          this.mainGameLoop();
+
+
        }
 
     protected void paintComponent(Graphics g) {
