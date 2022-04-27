@@ -37,7 +37,7 @@ public class GameScene extends JPanel {
         FRAME_RIGHT = new Rectangles(width-19, 0, 5, height, Color.green);
         FRAME_LEFT = new Rectangles(0, 0, 5, height, Color.green);
 
-        this.rectangle = new Rectangles(250, height-200, 93, 144, Color.WHITE);
+        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.WHITE);
         this.frame = new Frame(this.rectangle);
         this.image = new ImageIcon("Game\\MyCar.jpg");
         this.imageCar = new My_Image(image, 250, height-200, frame);
@@ -86,7 +86,7 @@ public class GameScene extends JPanel {
                     randomCars = new ImageIcon("Game\\MyCar.jpg");
                     break;
             }
-            rectangles[i] = new Rectangles(X, Y, 93, 144, Color.WHITE);
+            rectangles[i] = new Rectangles(X, Y, 102, 160, Color.WHITE);
             obstacles[i] = new My_Image(
                     this.cars = randomCars,
                     X,
