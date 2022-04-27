@@ -132,7 +132,7 @@ public class GameScene extends JPanel {
                         if(this.frame.checkCollision(frames[i])){
                             this.rectangle =  new Rectangles(this.frame.getX(), this.frame.getY(), 144,93 , Color.white);
                             this.frame = new Frame(this.rectangle);
-                            this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCarBroked.jpg");
+                            this.image = new ImageIcon("Game\\MyCarBroked.jpg");
                             this.imageCar = new My_Image(image, this.frame.getX() , this.frame.getY(), frame);
                             repaint();
                             GameOver gameOver = new GameOver(points);

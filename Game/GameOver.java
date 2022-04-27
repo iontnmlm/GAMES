@@ -16,7 +16,7 @@ public class GameOver extends JFrame {
 
 
         //It adds an image to the window
-        ImageIcon image = new ImageIcon("C:\\Users\\Eliyahu toronto\\Game_Shai\\Game\\gameOver.jpg");
+        ImageIcon image = new ImageIcon("Game\\gameOver.jpg");
         JLabel label = new JLabel();
         label.setBounds(50, 50, 400, 300);
         label.setIcon(image);
