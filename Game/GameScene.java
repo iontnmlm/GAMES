@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class GameScene extends JPanel {
+    private  int points;
 
     private Rectangles BOARD;
     private Rectangles ROAD_1;
@@ -37,7 +38,7 @@ public class GameScene extends JPanel {
 
         this.rectangle = new Rectangles(250, height-200, 93, 144, Color.WHITE);
         this.frame = new Frame(this.rectangle);
-        this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCar.jpg");
+        this.image = new ImageIcon("Game\\MyCar.jpg");
         this.imageCar = new My_Image(image, 250, height-200, frame);
 
         this.obstacles = new My_Image[100];
@@ -75,13 +76,13 @@ public class GameScene extends JPanel {
             int x2 = random.nextInt(9);
             switch (x2){
                 case 0, 3, 6:
-                    randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars.jpg");
+                    randomCars = new ImageIcon("Game\\cars.jpg");
                     break;
                 case 1, 2, 4, 7:
-                    randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\cars2.jpg");
+                    randomCars = new ImageIcon("Game\\cars2.jpg");
                     break;
                 default:
-                    randomCars = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCar.jpg");
+                    randomCars = new ImageIcon("Game\\MyCar.jpg");
                     break;
             }
             rectangles[i] = new Rectangles(X, Y, 93, 144, Color.WHITE);
@@ -113,6 +114,9 @@ public class GameScene extends JPanel {
             obstacles[i].paint(g);
             this.frames[i].paint(g);
         }
+        g.setFont(new Font("Tahoma", Font.PLAIN, 40));
+        g.setColor(Color.RED);
+        g.drawString(String.valueOf(points), 20, 50);
     }
 
     public void mainGameLoop(){
@@ -131,6 +135,7 @@ public class GameScene extends JPanel {
                             this.image = new ImageIcon("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\MyCarBroked.jpg");
                             this.imageCar = new My_Image(image, this.frame.getX() , this.frame.getY(), frame);
                             repaint();
+                            GameOver gameOver = new GameOver(points);
                             break first;
                         }
                     }
@@ -140,6 +145,7 @@ public class GameScene extends JPanel {
                         this.frames[i].moveDown();
                     }
                     Thread.sleep(5);
+                    points++;
                     repaint();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
