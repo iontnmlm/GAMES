@@ -1,5 +1,4 @@
 package Game;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -29,6 +28,8 @@ public class GameScene extends JPanel {
 
         this.setBounds(x, y, width, height);
         this.setLayout(null);
+        // It builds the road of the game
+
         this.BOARD = new Rectangles(0, -20000, width, 20000+height, Color.black);
         ROAD_1 = new Rectangles((width / 4), 0, 6, height, Color.white);
         ROAD_2 = new Rectangles((width / 2), 0, 6, height, Color.white);

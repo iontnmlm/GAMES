@@ -1,7 +1,4 @@
 package Game;
-
-
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -23,13 +20,5 @@ public class Window  extends JFrame {
     //This constructor build a Panel on the window.
         GameScene gameScene = new GameScene(0, 0 , WINDOW_WIDTH, WINDOW_HEIGHT);
         this.add(gameScene);
-
-
-    }
-
-
-    public static void main (String[]args){
-            Window window = new Window();
-
     }
 }
