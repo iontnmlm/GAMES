@@ -3,7 +3,6 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
 public class Window  extends JFrame {
 
     public static final int WINDOW_WIDTH = 800;

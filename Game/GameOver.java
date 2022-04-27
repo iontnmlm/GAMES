@@ -26,7 +26,7 @@ public class GameOver extends JFrame {
         JLabel label1 = new JLabel();
 
 
-        label1.setText("this point is = " + point);
+        label1.setText("This point is = " + point);
         label1.setFont(new Font("Tahoma", Font.PLAIN, 15));
         label1.setBounds(200, 300, 200, 200);
         this.add(label1);

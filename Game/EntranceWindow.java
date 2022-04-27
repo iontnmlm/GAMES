@@ -1,7 +1,5 @@
 package Game;
-
 import javax.swing.*;
-
 public class EntranceWindow extends JFrame {
 
     // Here we have a cool picture of the entrance to the game
@@ -10,7 +8,6 @@ public class EntranceWindow extends JFrame {
     }
 
     public EntranceWindow() {
-
 
         // This creates a new window
         this.setSize(500, 500);
