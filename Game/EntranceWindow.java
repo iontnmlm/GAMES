@@ -36,6 +36,7 @@ public class EntranceWindow extends JFrame {
         button.addActionListener((event) -> {
             this.dispose();
             Window window = new Window();
+            window.run();
 
         });
         this.add(button);

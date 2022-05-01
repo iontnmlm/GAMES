@@ -23,10 +23,10 @@ public class My_Image extends Component {
     }
 
     public void moveRight(){
-        this.x += 4;
+        this.x += 6;
     }
     public void moveLeft(){
-        this.x -= 4;
+        this.x -= 6;
     }
 
 //    public void moveUp(){

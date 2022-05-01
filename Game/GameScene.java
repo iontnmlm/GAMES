@@ -30,16 +30,16 @@ public class GameScene extends JPanel {
         this.setLayout(null);
         // It builds the road of the game
 
-        this.BOARD = new Rectangles(0, -20000, width, 20000+height, Color.black);
+        this.BOARD = new Rectangles(0, -20000, width, 20000+height, Color.GRAY);
         ROAD_1 = new Rectangles((width / 4), 0, 6, height, Color.white);
         ROAD_2 = new Rectangles((width / 2), 0, 6, height, Color.white);
         ROAD_3 = new Rectangles((width/4)*3, 0, 6, height, Color.white);
         FRAME_RIGHT = new Rectangles(width-19, 0, 5, height, Color.green);
         FRAME_LEFT = new Rectangles(0, 0, 5, height, Color.green);
 
-        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.WHITE);
+        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.red);
         this.frame = new Frame(this.rectangle);
-        this.image = new ImageIcon("Game\\MyCar.jpg");
+        this.image = new ImageIcon("Game\\MyCar.png");
         this.imageCar = new My_Image(image, 250, height-200, frame);
 
         this.obstacles = new My_Image[100];
@@ -77,16 +77,16 @@ public class GameScene extends JPanel {
             int x2 = random.nextInt(9);
             switch (x2){
                 case 0, 3, 6:
-                    randomCars = new ImageIcon("Game\\cars.jpg");
+                    randomCars = new ImageIcon("Game\\car3.png");
                     break;
                 case 1, 2, 4, 7:
-                    randomCars = new ImageIcon("Game\\cars2.jpg");
+                    randomCars = new ImageIcon("Game\\cars.png");
                     break;
                 default:
-                    randomCars = new ImageIcon("Game\\MyCar.jpg");
+                    randomCars = new ImageIcon("Game\\cars2.png");
                     break;
             }
-            rectangles[i] = new Rectangles(X, Y, 102, 160, Color.WHITE);
+            rectangles[i] = new Rectangles(X+8, Y, 87, 160, Color.red);
             obstacles[i] = new My_Image(
                     this.cars = randomCars,
                     X,
@@ -95,7 +95,6 @@ public class GameScene extends JPanel {
             );
         }
          this.mainGameLoop();
-
 
        }
 
@@ -115,7 +114,7 @@ public class GameScene extends JPanel {
             obstacles[i].paint(g);
             this.frames[i].paint(g);
         }
-        g.setFont(new Font("Tahoma", Font.PLAIN, 40));
+        g.setFont(new Font("Thoma", Font.PLAIN, 40));
         g.setColor(Color.RED);
         g.drawString(String.valueOf(points), 20, 50);
     }
@@ -131,12 +130,13 @@ public class GameScene extends JPanel {
                 try {
                     for(int i = 0; i < this.obstacles.length; i++){
                         if(this.frame.checkCollision(frames[i])){
-                            this.rectangle =  new Rectangles(this.frame.getX(), this.frame.getY(), 144,93 , Color.white);
+                            this.rectangle =  new Rectangles(this.frame.getX(), this.frame.getY(), 144,93 , Color.gray);
                             this.frame = new Frame(this.rectangle);
-                            this.image = new ImageIcon("Game\\MyCarBroked.jpg");
+                            this.image = new ImageIcon("Game\\MyCarBroked.png");
                             this.imageCar = new My_Image(image, this.frame.getX() , this.frame.getY(), frame);
                             repaint();
-                            GameOver gameOver = new GameOver(points);
+
+                            Window.GameOver gameOver = new Window.GameOver(points);
                             break first;
                         }
                     }
