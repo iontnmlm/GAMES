@@ -5,8 +5,10 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class GameScene extends JPanel {
+    // This counter the points
     private  int points;
-
+    private  int pixel;
+ // This is build the board
     private Rectangles BOARD;
     private Rectangles ROAD_1;
     private Rectangles ROAD_2;
@@ -25,26 +27,28 @@ public class GameScene extends JPanel {
     private ImageIcon image;
 
     public GameScene(int x, int y, int width, int height) {
-
+        // It's build the bound of the panel
         this.setBounds(x, y, width, height);
         this.setLayout(null);
-        // It builds the road of the game
 
-        this.BOARD = new Rectangles(0, -20000, width, 20000+height, Color.GRAY);
+        // It builds the road of the game
+        this.BOARD = new Rectangles(0, -60000, width, 60000+height, Color.gray);
         ROAD_1 = new Rectangles((width / 4), 0, 6, height, Color.white);
         ROAD_2 = new Rectangles((width / 2), 0, 6, height, Color.white);
         ROAD_3 = new Rectangles((width/4)*3, 0, 6, height, Color.white);
         FRAME_RIGHT = new Rectangles(width-19, 0, 5, height, Color.green);
         FRAME_LEFT = new Rectangles(0, 0, 5, height, Color.green);
 
-        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.gray);
+        // It's build The main Car and his frames
+        this.rectangle = new Rectangles(258, height-200, 85, 160, Color.gray);
         this.frame = new Frame(this.rectangle);
         this.image = new ImageIcon("Game\\MyCar.png");
         this.imageCar = new My_Image(image, 250, height-200, frame);
 
-        this.obstacles = new My_Image[100];
-        this.frames = new Frame[100];
-        this.rectangles = new Rectangles[100];
+       // It's build the obstacles and their frames by random numbers
+        this.obstacles = new My_Image[300];
+        this.frames = new Frame[300];
+        this.rectangles = new Rectangles[300];
         Random random = new Random();
         int min = -200;
         int max = min + 100;
@@ -100,6 +104,7 @@ public class GameScene extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        // It paints the board
         this.BOARD.paint(g);
         this.ROAD_1.paint(g);
         this.ROAD_2.paint(g);
@@ -118,7 +123,7 @@ public class GameScene extends JPanel {
         g.setColor(Color.RED);
         g.drawString(String.valueOf(points), 20, 50);
     }
-
+    // It's build the Thread the always run.
     public void mainGameLoop(){
         new Thread(()->{
             PlayerMovement_IMAGE_CAR board = new PlayerMovement_IMAGE_CAR(this.BOARD, this.imageCar, this.frame, this.obstacles, this.frames);
@@ -146,7 +151,12 @@ public class GameScene extends JPanel {
                         this.frames[i].moveDown();
                     }
                     Thread.sleep(5);
-                    points++;
+
+                    pixel++;
+                    while (pixel == 30){
+                        points++;
+                        pixel=0;
+                    }
                     repaint();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
