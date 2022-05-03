@@ -38,7 +38,7 @@ public class GameScene extends JPanel {
         FRAME_RIGHT = new Rectangles(width-19, 0, 5, height, Color.green);
         FRAME_LEFT = new Rectangles(0, 0, 5, height, Color.green);
 
-        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.red);
+        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.gray);
         this.frame = new Frame(this.rectangle);
         this.image = new ImageIcon("Game\\MyCar.png");
         this.imageCar = new My_Image(image, 250, height-200, frame);
