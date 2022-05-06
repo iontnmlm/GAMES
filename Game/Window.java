@@ -25,7 +25,7 @@ public class Window extends JFrame {
     }
     public static void close(){
         frame.dispose();
-        Window window = new Window();
+
     }
 
     public static class GameOver extends JFrame {

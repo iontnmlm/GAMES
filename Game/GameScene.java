@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GameScene extends JPanel {
     private  int points;
-    private int pixel;
+
 
     private Rectangles BOARD;
     private Rectangles ROAD_1;
@@ -31,21 +31,21 @@ public class GameScene extends JPanel {
         this.setLayout(null);
         // It builds the road of the game
 
-        this.BOARD = new Rectangles(0, -20000, width, 20000+height, Color.GRAY);
+        this.BOARD = new Rectangles(0, -130000, width, 130000+height, Color.gray);
         ROAD_1 = new Rectangles((width / 4), 0, 6, height, Color.white);
         ROAD_2 = new Rectangles((width / 2), 0, 6, height, Color.white);
         ROAD_3 = new Rectangles((width/4)*3, 0, 6, height, Color.white);
         FRAME_RIGHT = new Rectangles(width-19, 0, 5, height, Color.green);
         FRAME_LEFT = new Rectangles(0, 0, 5, height, Color.green);
 
-        this.rectangle = new Rectangles(250, height-200, 102, 160, Color.gray);
+        this.rectangle = new Rectangles(255, height-200, 95, 160, Color.red);
         this.frame = new Frame(this.rectangle);
         this.image = new ImageIcon("Game\\MyCar.png");
         this.imageCar = new My_Image(image, 250, height-200, frame);
 
-        this.obstacles = new My_Image[100];
-        this.frames = new Frame[100];
-        this.rectangles = new Rectangles[100];
+        this.obstacles = new My_Image[300];
+        this.frames = new Frame[300];
+        this.rectangles = new Rectangles[300];
         Random random = new Random();
         int min = -200;
         int max = min + 100;
@@ -96,7 +96,7 @@ public class GameScene extends JPanel {
             );
         }
          this.mainGameLoop();
-
+        this.countPoints();
        }
 
     protected void paintComponent(Graphics g) {
@@ -120,6 +120,29 @@ public class GameScene extends JPanel {
         g.drawString(String.valueOf(points), 20, 50);
     }
 
+    public void countPoints(){
+        new Thread(()->{
+            first:
+            while (true) {
+                try {
+                    if(this.points >= 100000){
+                        break first;
+                    }
+                    for(int i = 0; i < this.obstacles.length; i++){
+                        if(this.frame.checkCollision(frames[i])){
+                            break first;
+                        }
+                    }
+                    Thread.sleep(50);
+                    points++;
+                    repaint();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+    }
+
     public void mainGameLoop(){
         new Thread(()->{
             PlayerMovement_IMAGE_CAR board = new PlayerMovement_IMAGE_CAR(this.BOARD, this.imageCar, this.frame, this.obstacles, this.frames);
@@ -137,7 +160,12 @@ public class GameScene extends JPanel {
                             this.imageCar = new My_Image(image, this.frame.getX() , this.frame.getY(), frame);
                             repaint();
 
-                            Window.GameOver gameOver = new Window.GameOver(points);
+                            GameOver gameOver = new GameOver(points);
+                            break first;
+                        }
+                        if(this.points>=100000){
+                            MainWindow.close();
+                            WinnerWindow window = new WinnerWindow();
                             break first;
                         }
                     }
@@ -147,11 +175,6 @@ public class GameScene extends JPanel {
                         this.frames[i].moveDown();
                     }
                     Thread.sleep(5);
-                    pixel++;
-                    while (pixel == 50){
-                        points++;
-                        pixel = 0;
-                    }
                     repaint();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
