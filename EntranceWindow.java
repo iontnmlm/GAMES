@@ -9,11 +9,6 @@ public class EntranceWindow extends JFrame {
     // Here we have a cool picture of the entrance to the game
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         EntranceWindow entranceWindow = new EntranceWindow();
-        File file = new File("C:\\Users\\ELI\\Desktop\\coding and cyber\\java\\ProgrammingWorkshop\\src\\Game\\Bad_Meets_Evil_-_Fast_Lane_ft_Emin_(getmp3.pro).wav");
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
-        clip.start();
     }
 
     public EntranceWindow() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
